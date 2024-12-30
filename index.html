@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Level Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            background: #eafaf1;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #27ae60;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stress Level Detection</h1>
+    <h2>Enter the values as mentioned below:</h2>
+    <form action="/" method="post">
+        <input type="number" name="MEAN_RR" placeholder="MEAN_RR" step="any" required>
+        <input type="number" name="RMSSD" placeholder="RMSSD" step="any" required>
+        <input type="number" name="pNN25" placeholder="pNN25" step="any" required>
+        <input type="number" name="pNN50" placeholder="pNN50" step="any" required>
+        <input type="number" name="LF" placeholder="LF" step="any" required>
+        <input type="number" name="HF" placeholder="HF" step="any" required>
+        <input type="number" name="LF_HF" placeholder="LF_HF" step="any" required>
+        <input type="submit" value="Predict">
+    </form>
+    {% if cond %}
+    <div class="result">
+        <h2>Predicted Condition:</h2>
+        <p>{{ cond }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
